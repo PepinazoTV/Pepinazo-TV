@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+
+.cont-temporizador{
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.cont-temporizador .bloque{
+    margin: 0px 4px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.cont-temporizador .bloque div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(80, 80, 80, 80);
+    box-shadow: 0px 0px 6px 2px #727272 inset;
+    color: #ffffff;
+    font-size: 40px;
+    font-weight: bold;
+    width: 100px;
+    height: 70px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.cont-temporizador .bloque p{
+    font-size: 11px;
+    font-weight: bold;
+    color: #dedede;
+}
+</style>
+<body>
+    
+
+                                    <!-- (SPAN) Sirve para aplicar estilo al texto o agrupar elementos en línea -->
+                                    <!-- (H2) Es un titulo de segundo nivel --> 
+                                    <!-- (A) crea un enlace a otras páginas de internet o archivos dentro de la misma página -->    
+                                       
+                                   
+    </style>
+<div onLoad="mostrar_hora()">   
+ <div class="cont-temporizador">
+                                            <div class="bloque">
+                                                <div class="dias" id="dias">00</div>
+                                                <p>Días</p>
+                                            </div>
+                                            <div class="bloque">
+                                                <div class="dias" id="dias">--</div>
+                                                <p>Horas</p>
+                                            </div>
+                                            <div class="bloque">
+                                                <div class="dias" id="dias">--</div>
+                                                <p>Minutos</p>
+                                            </div>
+                                            <div class="bloque">
+                                                <div class="dias" id="dias">00</div>
+                                                <p>Segundos</p>
+                                            </div>
+
+                                        </div>
+                                        <h2><a class="espaciado1"><br/>
+                                        </a>Sorteo - 1</h2>
+<script>
+  // Variables Globales
+var tiempo = {}; 
+var clock = new Date("2016-06-01 5:00:00 PM"); // Obtener la fecha y almacenar en clock
+var intervalo = window.setInterval(mostrar_hora, 1); // Frecuencia de actualización
+var i = 0; // Esta variable me ayudará a definir los estados de intervalo
+
+function mostrar_hora(){
+  var now = new Date();  
+  // Inserta la hora almacenada en clock en el span con id hora
+  tiempo.horas = document.getElementById('hora');
+  tiempo.horas.innerHTML = clock.getHours() - now.getHours(); 
+  
+  // Inserta los minutos almacenados en clock en el span con id minuto
+  tiempo.minuto = document.getElementById('minuto');
+  tiempo.minuto.innerHTML = clock.getMinutes()+60 - now.getMinutes();
+  
+  // Inserta los segundos almacenados en clock en el span con id segundo
+  tiempo.segundos = document.getElementById('segundo')
+  tiempo.segundos.innerHTML = "0" + clock.getSeconds()+60 - now.getSeconds();
+  
+
+}
+</script>
+</body>
+</html>
